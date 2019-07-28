@@ -167,7 +167,6 @@ export default {
         this.infoMessage = this.responses[1];
       }
       this.endTimer();
-      this.playing = false;
     },
     nextRound() {
       if (this.currentNameIndex == this.names.length - 1) {
@@ -203,6 +202,7 @@ export default {
       }, 1000);
     },
     endTimer() {
+      this.playing = false;
       clearInterval(this.timer);
       this.time = 0;
       this.timer = null;
@@ -223,11 +223,11 @@ export default {
   },
 
   watch: {
-    time(val) {
-      if (val == 0) {
-        this.playing = false;
-      }
-    },
+    // time(val) {
+    //   if (val == 0) {
+    //     this.playing = false;
+    //   }
+    // },
     currentNameIndex(val) {
       this.wordArray = this.shuffle(this.names[val].split(""));
     }
