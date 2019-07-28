@@ -1,6 +1,7 @@
 <template>
   <div class="img-wrapper">
-    <img :src="getImgUrl('guru')" />
+    <img :src="getImgUrl(imageName)" />
+    <p>3/10</p>
   </div>
 </template>
 
@@ -19,17 +20,24 @@ export default {
 <style lang="scss">
 .img-wrapper {
   position: relative;
-  top: 10%;
+  top: 7%;
   margin: 0 auto;
-  height: 70vw;
-  width: 70vw;
+  height: 35vh;
+  width: 35vh;
   border: 0.5px solid #eaeaea;
   border-radius: 2px;
   padding: 2px;
-  box-shadow: 2px 2px 10px #eaeaea;
+  background: #eaeaea;
+  box-shadow: 3px 3px 4px #333;
   img {
     height: 100%;
     width: 100%;
+  }
+  p {
+    margin: 10px auto;
+    color: #767676;
+    font-size: 12px;
+    text-align: center;
   }
 }
 </style>

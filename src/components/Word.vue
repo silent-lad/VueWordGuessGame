@@ -18,26 +18,47 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../variables.scss";
+
 .word {
-  height: 7vw;
-  width: 7vw;
+  height: 25px;
+  width: 25px;
   border-radius: 10px;
-  margin: 1% 3%;
-  font-size: 25px;
+  margin: 2% 3%;
+  font-size: 23px;
   text-align: center;
   text-transform: uppercase;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  padding: 1.5vw;
+  padding: 8px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   &.success {
-    border: 5px solid #366d1d;
-    background: #bcff9e;
-    color: #264218;
+    box-shadow: 3px 3px 10px $successBorderColor;
+    background: $successBackgroundColor;
+    color: $successTextColor;
+    &:active {
+      box-shadow: 1px 1px 5px $successBorderColor;
+      transform: translate(2px, 2px);
+    }
   }
   &.danger {
-    border: 1px solid;
+    box-shadow: 3px 3px 10px $dangerBorderColor;
+    background: $dangerBackgroundColor;
+    color: $dangerTextColor;
+    &:active {
+      box-shadow: 1px 1px 5px $dangerBorderColor;
+    }
   }
   &.warning {
-    border: 1px solid;
+    box-shadow: 3px 3px 10px $warningBorderColor;
+    background: $warningBackgroundColor;
+    color: $warningTextColor;
+    &:active {
+      box-shadow: 1px 1px 5px $warningBorderColor;
+    }
   }
 }
 </style>
