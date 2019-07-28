@@ -1,14 +1,14 @@
 <template>
   <div class="img-wrapper">
     <img :src="getImgUrl(imageName)" />
-    <p>3/10</p>
+    <p>{{ current }}/{{ total }}</p>
   </div>
 </template>
 
 <script>
 export default {
   name: "ImagePanel",
-  props: ["imageName"],
+  props: ["imageName", "total", "current"],
   methods: {
     getImgUrl(pic) {
       return require("../assets/" + pic + ".jpg");

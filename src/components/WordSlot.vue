@@ -2,15 +2,15 @@
   <div class="slot_wrapper">
     <div
       :key="index"
-      v-for="(alphabet, index) in guessArray"
+      v-for="index in guessLength"
       :class="[
         state,
-        alphabet != '' ? 'typed' : '',
+        index < activeIndex != '' ? 'typed' : '',
         activeIndex == index ? 'active' : ''
       ]"
       class="slots"
     >
-      {{ alphabet }}
+      {{ guessArray[index - 1] }}
     </div>
   </div>
 </template>
@@ -18,18 +18,12 @@
 <script>
 export default {
   name: "WordSlot",
-  props: ["guessArray", "state"],
+  props: ["guessLength", "state", "guessArray"],
   computed: {
     activeIndex() {
       var activeIndex = 0;
       var selected = 0;
-      this.guessArray.forEach((el, index) => {
-        if (el == "" && !selected) {
-          activeIndex = index;
-          selected++;
-        }
-      });
-      return activeIndex;
+      return this.guessArray.length + 1;
     }
   }
 };
@@ -51,6 +45,7 @@ export default {
   border: 2px solid #ffffff00;
   padding: 7px;
   &.typed {
+    box-shadow: 3px 3px 1px #d4d3d3;
     &.success {
       border: 2px solid $successBorderColor;
       color: $successTextColor;
