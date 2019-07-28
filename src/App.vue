@@ -129,6 +129,7 @@ export default {
       this.currentNameIndex = 0;
       this.playing = true;
       this.skipCount = 1;
+      this.score = 0;
       this.wordArray = this.shuffle(
         this.names[this.currentNameIndex].split("")
       );
