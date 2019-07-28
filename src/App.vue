@@ -116,12 +116,19 @@ export default {
 
   methods: {
     selectWord(word, index) {
+      if (word == "") return;
       this.guessArray.push(word);
-      this.wordArray.splice(index, 1);
+      this.wordArray[index] = "";
     },
     deleteWord() {
       if (this.guessArray) {
-        this.wordArray.push(this.guessArray.pop());
+        var done = false;
+        this.wordArray.forEach((el, index) => {
+          if (el == "" && !done) {
+            this.wordArray[index] = this.guessArray.pop();
+            done = true;
+          }
+        });
       }
     },
     startGame() {
